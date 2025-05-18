@@ -2,7 +2,8 @@
 const mysql = require('mysql2');
 
 const connection = mysql.createConnection({
-    host: 'switchyard.proxy.rlwy.net:16833',
+    host: 'switchyard.proxy.rlwy.net',
+    port: 16833,
     user: 'root',
     password: 'TvkYoQJokmGNisrrOhTaqsNcWcyZVade',
     database: 'nutech_integrasi_db'
