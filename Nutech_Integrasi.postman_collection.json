@@ -1,0 +1,452 @@
+{
+	"info": {
+		"_postman_id": "9b6350a5-4f86-4343-a654-8e91b8eaeac6",
+		"name": "Nutech Integrasi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "45039558",
+		"_collection_link": "https://marsyadasalsabila.postman.co/workspace/Marsyada-Salsabila's-Workspace~61c7a804-e4a9-4c13-87c0-ace7129ef1bd/collection/45039558-9b6350a5-4f86-4343-a654-8e91b8eaeac6?action=share&source=collection_link&creator=45039558"
+	},
+	"item": [
+		{
+			"name": "Membership Register",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "pandawa.rifaz@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "first_name",
+							"value": "Dewanata",
+							"type": "text"
+						},
+						{
+							"key": "last_name",
+							"value": "Rifaz",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "03april2013",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://nutechintegrasi-production-ba29.up.railway.app/api/user/register",
+					"protocol": "https",
+					"host": [
+						"nutechintegrasi-production-ba29",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"api",
+						"user",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Membership Login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "pandawa.rifaz@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "03april2013",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://nutechintegrasi-production-ba29.up.railway.app/api/user/login",
+					"protocol": "https",
+					"host": [
+						"nutechintegrasi-production-ba29",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"api",
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Membership Profile",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://nutechintegrasi-production-ba29.up.railway.app/api/user/profile",
+					"protocol": "https",
+					"host": [
+						"nutechintegrasi-production-ba29",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"api",
+						"user",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Membership Profile Update",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "first_name",
+							"value": "Embe",
+							"type": "text"
+						},
+						{
+							"key": "last_name",
+							"value": "Badot",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://nutechintegrasi-production-ba29.up.railway.app/api/user/profile/update",
+					"protocol": "https",
+					"host": [
+						"nutechintegrasi-production-ba29",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"api",
+						"user",
+						"profile",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Membership Profile Image",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/ACER/Pictures/Screenshots/Screenshot (15).png"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://nutechintegrasi-production-ba29.up.railway.app/api/user/profile/image",
+					"protocol": "https",
+					"host": [
+						"nutechintegrasi-production-ba29",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"api",
+						"user",
+						"profile",
+						"image"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Information Banner",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://nutechintegrasi-production-ba29.up.railway.app/api/information/banner",
+					"protocol": "https",
+					"host": [
+						"nutechintegrasi-production-ba29",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"api",
+						"information",
+						"banner"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Information Services",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://nutechintegrasi-production-ba29.up.railway.app/api/information/services",
+					"protocol": "https",
+					"host": [
+						"nutechintegrasi-production-ba29",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"api",
+						"information",
+						"services"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Transaction Balance",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://nutechintegrasi-production-ba29.up.railway.app/api/transaction/balance",
+					"protocol": "https",
+					"host": [
+						"nutechintegrasi-production-ba29",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"api",
+						"transaction",
+						"balance"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Transaction Topup",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "top_up_amount",
+							"value": "500000",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://nutechintegrasi-production-ba29.up.railway.app/api/transaction/topup",
+					"protocol": "https",
+					"host": [
+						"nutechintegrasi-production-ba29",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"api",
+						"transaction",
+						"topup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Transaction",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "service_code",
+							"value": "PAJAK",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://nutechintegrasi-production-ba29.up.railway.app/api/transaction/transaction",
+					"protocol": "https",
+					"host": [
+						"nutechintegrasi-production-ba29",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"api",
+						"transaction",
+						"transaction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Transaction History",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://nutechintegrasi-production-ba29.up.railway.app/api/transaction/history",
+					"protocol": "https",
+					"host": [
+						"nutechintegrasi-production-ba29",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"api",
+						"transaction",
+						"history"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
