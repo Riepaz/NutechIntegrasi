@@ -27,6 +27,8 @@ SET time_zone = "+00:00";
 -- Table structure for table `accounts`
 --
 
+USE nutech_integrasi_db;
+
 CREATE TABLE `accounts` (
   `id` varchar(36) NOT NULL DEFAULT 'UUID()',
   `user_id` varchar(36) NOT NULL,
