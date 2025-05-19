@@ -22,12 +22,20 @@ module.exports = class UserController extends controller {
                 });
             }
 
+            const userId = uuid.v4();
             var params = [
-                uuid.v4(),
+                userId,
                 this.req.body.email,
                 this.req.body.first_name,
                 this.req.body.last_name,
                 await bcrypt.hash(this.req.body.password, 10),
+            ];
+
+            var account = [
+                uuid.v4(),
+                userId,
+                Math.floor(100000 + Math.random() * 900000),
+                0
             ];
 
             const insertStmt = `
@@ -35,32 +43,29 @@ module.exports = class UserController extends controller {
                 VALUES (?, ?, ?, ?, ?)
             `;
 
-            connection.query(insertStmt, params,
-                (err, results) => {
-                    if (err) {
-                        return this.res.status(400).send({
-                            status: 102,
-                            message: err.sqlMessage,
-                            data: null
-                        });
-                    }
-                    
-                    if(results.affectedRows) {
-                        return this.res.status(201).send({
-                            status: 0,
-                            message: "Registrasi berhasil silahkan login",
-                            data: null
-                        });
-                    } else {
-                        return this.res.status(200).send({
-                            status: 102,
-                            message: results.info,
-                            data: null
-                        });
-                    }                    
-                }
-            );
+            const results = await connection.promise().execute(insertStmt, params);
             
+            if(results.affectedRows) {
+                const insertAccountStmt = `
+                    INSERT INTO accounts (id, user_id, account_number, balance)
+                    VALUES (?, ?, ?, ?)
+                `;
+
+                await connection.promise().execute(insertAccountStmt, account);        
+
+                return this.res.status(201).send({
+                    status: 0,
+                    message: "Registrasi berhasil silahkan login",
+                    data: null
+                });
+            } else {
+                return this.res.status(200).send({
+                    status: 102,
+                    message: results.info,
+                    data: null
+                });
+            }     
+
         } catch (error) {
             this.res.status(500).send({
                 status: 500,
