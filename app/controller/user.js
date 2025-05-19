@@ -45,6 +45,8 @@ module.exports = class UserController extends controller {
 
             const results = await connection.promise().execute(insertStmt, params);
             
+            console.log(results);
+
             if(results[0].affectedRows) {
                 const insertAccountStmt = `
                     INSERT INTO accounts (id, user_id, account_number, balance)
