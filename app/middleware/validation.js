@@ -15,7 +15,7 @@ module.exports.api = (req, res, next) => {
 
     jwt.verify(token, req.session.user.password, (err, user) => {
         if (err) {
-            return res.status(403).send({
+            return res.status(401).send({
                 status: 108,
                 message: "Token tidak tidak valid atau kadaluwarsa",
                 data: null
